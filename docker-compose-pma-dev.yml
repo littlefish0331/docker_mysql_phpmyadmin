@@ -23,10 +23,10 @@ services:
         depends_on:
             - database
         container_name: "${COMPOSE_PROJECT_NAME}_phpmyadmin"
-        image: phpmyadmin/phpmyadmin:latest
+        image: pma_dev:latest
         build:
-            context: ./pma_dev_setting
-            dockerfile: ${PWD}/pma_dev_setting/Dockerfile
+            context: ./pma_dev
+            dockerfile: ${PWD}/pma_dev/Dockerfile
         restart: always
         ports:
             - "8080:80"
