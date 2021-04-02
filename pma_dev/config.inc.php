@@ -154,6 +154,7 @@ if (file_exists('/etc/phpmyadmin/config.user.inc.php')) {
 
 /**
  * Servers configuration
+ * 畫面上會出現「選擇伺服器」的下拉式選單。
  */
 $i = 0;
 
@@ -177,7 +178,7 @@ $i++;
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = '203.145.218.12';
-$cfg['Servers'][$i]['port'] = '8769';
+$cfg['Servers'][$i]['port'] = '3306';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 

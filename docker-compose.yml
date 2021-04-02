@@ -28,7 +28,8 @@ services:
             - "8080:80"
         environment:
             PMA_HOST: database
-            PMA_ARBITRARY: 1
+            # PMA_PORT: 3306 # 預設會是3306，所以可以不用寫。
+            PMA_ARBITRARY: 1 # 會出現「伺服器」的格式可以填寫，格式如 host:port。
         networks:
             staticnet:
                 ipv4_address: 192.168.0.3
