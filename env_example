@@ -1,0 +1,8 @@
+#### General ####
+# project name prepend to service, make container name unique
+COMPOSE_PROJECT_NAME=NCHC
+
+#### MYSQL ####
+MYSQL_Volumn_local=./vol/mysql
+MYSQL_Volumn_container=/var/lib/mysql
+MYSQL_PASSWORD=

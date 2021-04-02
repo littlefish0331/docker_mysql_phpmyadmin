@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+    database:
+        container_name: "${COMPOSE_PROJECT_NAME}_mysql"
+        image: mysql:latest
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        ports:
+            - "3306:3306"
+        volumes:
+            - ${MYSQL_Volumn_local}:${MYSQL_Volumn_container}:rw
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+            - PGID=1000
+            - PUID=1000
+            - TZ=Asia/Taipei
+        networks:
+            staticnet:
+                ipv4_address: 192.168.0.2
+
+    phpmyadmin:
+        depends_on:
+            - database
+        container_name: "${COMPOSE_PROJECT_NAME}_phpmyadmin"
+        image: phpmyadmin/phpmyadmin:latest
+        build:
+            context: ./pma_dev_setting
+            dockerfile: ${PWD}/pma_dev_setting/Dockerfile
+        restart: always
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: database
+            # PMA_ARBITRARY: 1
+        networks:
+            staticnet:
+                ipv4_address: 192.168.0.3
+
+networks:
+    staticnet:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 192.168.0.0/16
+                # - gateway: 192.168.0.1 # set gatweway, use version:'2'.
+
