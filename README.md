@@ -35,6 +35,19 @@ port 的部分在 docker-compose.yml 檔案裡面有
 
 ---
 
+## phpmyadmin
+
+docker-compose 裡面是預設 phpmyadmin 連接 mysql，  
+但是為了方便使用，也把可以填寫 server 的欄位開啟，阿預設如果不填寫，就會連線到設定好的 mysql。  
+填寫的格式為 host:port，不寫 port 就是預設使用 3306。
+
+另外，有時不想打 host，也可以寫好預連線的 host 有哪些，  
+修改 `/pma_dev/config.inc`，  
+並使用 `docker-compose-pma-dev.yml` 改名為 `docker-compose.yml`，  
+就會將設定好的 host，以下拉式選單的方式，呈現再登入頁面。
+
+---
+
 ## 技術細節說明
 
 ![image01](/image/image01.PNG)
