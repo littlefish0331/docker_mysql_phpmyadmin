@@ -35,4 +35,22 @@ port 的部分在 docker-compose.yml 檔案裡面有
 
 ---
 
+## 技術細節說明
+
+![image01](/image/image01.PNG)
+
+--
+![image02](/image/image02.PNG)
+
+--
+![image03](/image/image03.PNG)
+
+--
+![image04](/image/image04.PNG)
+
+--
+![image05](/image/image05.PNG)
+
+---
+
 ## END
